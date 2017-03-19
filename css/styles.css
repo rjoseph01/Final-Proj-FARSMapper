@@ -1,0 +1,108 @@
+    html, body, #container {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: azure;
+    }
+
+    #map {
+      width: auto;
+      height: 92%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.55);
+    }
+    #sidebar {
+      width: 32%;
+      height: 100%;
+      max-width: 100%;
+      float: right;
+      -webkit-transition: all 0.25s ease-out;
+      -moz-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+      background-color: seashell;
+      border-radius: 20px;
+      margin:2px;
+      padding: 8px;
+      font-family: 'Karla', sans-serif;
+      font-weight: bold;
+      text-align: left;
+    }
+    #sidebar h4{
+      text-align: center;
+    }
+    #sidebar h5{
+      margin: 10px 0 0 0;
+    }
+.btn-group {
+    float: center;
+}
+.physchar {
+  width: 100%;
+  height: 400px;
+  background-color: #FFE4E1;
+  padding: 8px;
+  text-align: left;
+  display: inline-block;
+}
+.physchar h5{
+  margin: auto;
+  font-size: 16px;
+  /*display: inline-block;*/
+}
+.envchar {
+  width: 100%;
+  height: 400px;
+  background-color: #FFE4B5;
+  padding: 8px;
+  text-align: left;
+}
+.geochar {
+  width: 100%;
+  height: 400px;
+  background-color: #EEE8AA;
+  padding: 8px;
+  text-align: left;
+}
+.dispbox {
+  text-align: left;
+}
+#FARS-Menu.navbar-default .navbar-brand {
+    color: rgba(64, 41, 158, 1);
+    font-family: 'Arvo', serif;
+}
+#FARS-Menu.navbar-default {
+    font-size: 16px;
+    background-color: rgba(129, 193, 235, 1);
+    border-width: 1px;
+    border-radius: 14px;
+    font-family: 'Cabin', sans-serif;   
+    margin: 2px; 
+}
+#FARS-Menu.navbar-default .navbar-nav>li>a {
+    color: rgba(64, 41, 158, 1);
+    background-color: rgba(129, 193, 235, 1);
+}
+#FARS-Menu.navbar-default .navbar-nav>li>a:hover,
+#FARS-Menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(91, 126, 240, 1);
+}
+#FARS-Menu.navbar-default .navbar-nav>.active>a,
+#FARS-Menu.navbar-default .navbar-nav>.active>a:hover,
+#FARS-Menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(190, 151, 232, 1);
+}
+#FARS-Menu.navbar-default .navbar-toggle {
+    border-color: #be97e8;
+}
+#FARS-Menu.navbar-default .navbar-toggle:hover,
+#FARS-Menu.navbar-default .navbar-toggle:focus {
+    background-color: #be97e8;
+}
+#FARS-Menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #be97e8;
+}
+#FARS-Menu.navbar-default .navbar-toggle:hover .icon-bar,
+#FARS-Menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #81c1eb;
+}

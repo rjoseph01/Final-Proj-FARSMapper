@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta Tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>FARS Mapper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Cabin|Karla:700" rel="stylesheet">
+
+   <link rel="icon" type="image/jpg" href="./FARS.jpg">
+  </head>
+
+  
+
+  <body>
+
+    <body style="background-color: azure">
+<div id="FARS-Menu" class="navbar navbar-default " role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#">FARS Mapper</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars" target="_blank">FARS Documentation</a>
+                </li>
+                <li><a href="#">2014 Data</a>
+                </li>
+                <li><a href="//github.com/rjoseph01">About Me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div id="container">
+      
+      <div id="sidebar">
+        <h4>Select Attributes to Filter Fatal Accidents</h4>
+            <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" id="physbut">Physical</button>
+                  <button type="button" class="btn btn-default" id="envbut">Environmental</button>
+                  <button type="button" class="btn btn-default" id="geobut">Geography</button>
+            </div>
+            <div class="physchar">
+            <h5>Vehicles Involved:</h5>
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default" id="VTB1">1</button>
+              <button type="button" class="btn btn-default" id="VTB2">2</button>
+              <button type="button" class="btn btn-default" id="VTB3">3</button>
+              <button type="button" class="btn btn-default" id="VTB4">4+</button>
+            </div>
+            <h5>Fatalities:</h5>
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default" id="FTB1">1</button>
+              <button type="button" class="btn btn-default" id="FTB2">2</button>
+              <button type="button" class="btn btn-default" id="FTB3">3+</button>
+            </div>
+            <h5>Drunk Drivers Involved:</h5>
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default" id="DDB1">0</button>
+              <button type="button" class="btn btn-default" id="DDB2">1</button>
+              <button type="button" class="btn btn-default" id="DDB3">2</button>
+            </div>
+            </div>
+            <div class="envchar">
+                <h5>Date:</h5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Month <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="Jan"><a href="#">January</a></li>
+                    <li id="Feb"><a href="#">February</a></li>
+                    <li id="Mar"><a href="#">March</a></li>
+                    <li id="Apr"><a href="#">April</a></li>
+                    <li id="May"><a href="#">May</a></li>
+                    <li id="Jun"><a href="#">June</a></li>
+                    <li id="Jul"><a href="#">July</a></li>
+                    <li id="Aug"><a href="#">August</a></li>
+                    <li id="Sep"><a href="#">September</a></li>
+                    <li id="Oct"><a href="#">October</a></li>
+                    <li id="Nov"><a href="#">November</a></li>
+                    <li id="Dec"><a href="#">December</a></li>
+                  </ul>
+                  </div>
+                    <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Day <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="D1"><a href="#">1</a></li>
+                    <li id="D2"><a href="#">2</a></li>
+                    <li id="D3"><a href="#">3</a></li>
+                    <li id="D4"><a href="#">4</a></li>
+                    <li id="D5"><a href="#">5</a></li>
+                    <li id="D6"><a href="#">6</a></li>
+                    <li id="D7"><a href="#">7</a></li>
+                    <li id="D8"><a href="#">8</a></li>
+                    <li id="D9"><a href="#">9</a></li>
+                    <li id="D10"><a href="#">10</a></li>
+                    <li id="D11"><a href="#">11</a></li>
+                    <li id="D12"><a href="#">12</a></li>
+                    <li id="D13"><a href="#">13</a></li>
+                    <li id="D14"><a href="#">14</a></li>
+                    <li id="D15"><a href="#">15</a></li>
+                    <li id="D16"><a href="#">16</a></li>
+                    <li id="D17"><a href="#">17</a></li>
+                    <li id="D18"><a href="#">18</a></li>
+                    <li id="D19"><a href="#">19</a></li>
+                    <li id="D20"><a href="#">20</a></li>
+                    <li id="D21"><a href="#">21</a></li>
+                    <li id="D22"><a href="#">22</a></li>
+                    <li id="D23"><a href="#">23</a></li>
+                    <li id="D24"><a href="#">24</a></li>
+                    <li id="D25"><a href="#">25</a></li>
+                    <li id="D26"><a href="#">26</a></li>
+                    <li id="D27"><a href="#">27</a></li>
+                    <li id="D28"><a href="#">28</a></li>
+                    <li id="D29"><a href="#">29</a></li>
+                    <li id="D30"><a href="#">30</a></li>
+                    <li id="D31"><a href="#">31</a></li>
+                  </ul>
+                </div>
+                <h5><br>Time:</h5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hour <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="H0"><a href="#">0</a></li>
+                    <li id="H1"><a href="#">1</a></li>
+                    <li id="H2"><a href="#">2</a></li>
+                    <li id="H3"><a href="#">3</a></li>
+                    <li id="H4"><a href="#">4</a></li>
+                    <li id="H5"><a href="#">5</a></li>
+                    <li id="H6"><a href="#">6</a></li>
+                    <li id="H7"><a href="#">7</a></li>
+                    <li id="H8"><a href="#">8</a></li>
+                    <li id="H9"><a href="#">9</a></li>
+                    <li id="H10"><a href="#">10</a></li>
+                    <li id="H11"><a href="#">11</a></li>
+                    <li id="H12"><a href="#">12</a></li>
+                    <li id="H13"><a href="#">13</a></li>
+                    <li id="H14"><a href="#">14</a></li>
+                    <li id="H15"><a href="#">15</a></li>
+                    <li id="H16"><a href="#">16</a></li>
+                    <li id="H17"><a href="#">17</a></li>
+                    <li id="H18"><a href="#">18</a></li>
+                    <li id="H19"><a href="#">19</a></li>
+                    <li id="H20"><a href="#">20</a></li>
+                    <li id="H21"><a href="#">21</a></li>
+                    <li id="H22"><a href="#">22</a></li>
+                    <li id="H23"><a href="#">23</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Minute <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="HM0"><a href="#">Placeholder</a></li>
+                    <li id="HM1"><a href="#">Placeholder</a></li>
+                  </ul>
+                </div>
+                <h5>Day of the Week:</h5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Day of the Week<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="HM0"><a href="#">Placeholder</a></li>
+                    <li id="HM1"><a href="#">Placeholder</a></li>
+                  </ul>
+                </div>    
+            </div>
+            <div class="geochar">
+                <H5>Location:</H5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    State <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="ST1"><a href="#">Placeholder</a></li>
+                    <li id="ST2"><a href="#">Alabama</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Metro Area <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="ST1"><a href="#">Placeholder</a></li>
+                    <li id="ST2"><a href="#">Alabama</a></li>
+                  </ul>
+                </div>
+                <h5>Built Environment:</h5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rural or Urban<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li id="ST1"><a href="#">Rural</a></li>
+                    <li id="ST2"><a href="#">Urban</a></li>
+                  </ul>
+                </div>   
+            </div>
+            <div class="dispbox">
+                <h5>Accidents Displayed:</h5>
+                <h5 id="AD"></h5>
+                <h5>Selected Case ID:</h5>
+                <h5 id="SCID"></h5>
+            </div>               
+      </div>
+      <div id="map">
+      </div>
+
+    </div><!-- /.container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
