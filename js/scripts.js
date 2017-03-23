@@ -1,5 +1,5 @@
     var map = new L.Map('map', { 
-      center: [35,-78],
+      center: [37,-96.2],
       zoom: 4
     });
 
@@ -15,58 +15,66 @@
 
         // get layer from Carto
         var acc_2015 = layer.getSubLayer(1);
-        acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
+        acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, st_case, ve_total FROM acc_15wmetro');
         // $('map').ready(function() {
         //   setSQL('SELECT * FROM acc_15wmetro');
         // });
 
+        var activesql = "acc_15wmetro";
+
         // event listeners to change the SQL for the carto layer
         //Total vehicle filters
         $('#VTB1').on('click', function() {
-          var VTB1 = 'SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro WHERE ve_total = 1'
-           acc_2015.setSQL(VTB1);
+          activesql = "acc_15wmetro WHERE ve_total = 1"
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM ' + activesql);
            $('#VTB1').css("background-color", "#00CED1");
            $('#VTB2').css("background-color", "");
            $('#VTB3').css("background-color", "");
-           $('#VTB4').css("background-color", "");   
+           $('#VTB4').css("background-color", "");
         });
+          
         $('#VTB2').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro WHERE ve_total = 2');
+          activesql = "acc_15wmetro WHERE ve_total = 2";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM ' + activesql);
            $('#VTB2').css("background-color", "#00CED1");
            $('#VTB1').css("background-color", "");
            $('#VTB3').css("background-color", "");
            $('#VTB4').css("background-color", "");
         });
          $('#VTB3').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro WHERE ve_total = 3');
+          activesql = "acc_15wmetro WHERE ve_total = 3";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM ' + activesql);
            $('#VTB3').css("background-color", "#00CED1");
            $('#VTB1').css("background-color", "");
            $('#VTB2').css("background-color", "");
            $('#VTB4').css("background-color", "");
         });
          $('#VTB4').on('click', function() {
+          activesql = "acc_15wmetro WHERE ve_total > 3";
            acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro WHERE ve_total > 3');
            $('#VTB4').css("background-color", "#00CED1");
            $('#VTB1').css("background-color", "");
            $('#VTB2').css("background-color", "");
            $('#VTB3').css("background-color", "");
         });
-
          //Fatalities filters
         $('#FTB1').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM acc_15wmetro WHERE fatals = 1');
+          activesql = "acc_15wmetro WHERE fatals = 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM ' + activesql);
            $('#FTB1').css("background-color", "#00CED1");
            $('#FTB2').css("background-color", "");
            $('#FTB3').css("background-color", "");   
         });
         $('#FTB2').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM acc_15wmetro WHERE fatals = 2');
+          activesql = "acc_15wmetro WHERE fatals = 2";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM ' + activesql);
            $('#FTB2').css("background-color", "#00CED1");
            $('#FTB1').css("background-color", "");
            $('#FTB3').css("background-color", "");
         });
         $('#FTB3').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM acc_15wmetro WHERE fatals = 3');
+          activesql = "acc_15wmetro WHERE fatals = 3";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, fatals FROM ' + activesql);
            $('#FTB3').css("background-color", "#00CED1");
            $('#FTB1').css("background-color", "");
            $('#FTB2').css("background-color", "");
@@ -74,19 +82,22 @@
 
         //Drunk Driver filters
         $('#DDB1').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM acc_15wmetro WHERE drunk_dr = 0');
+          activesql = "acc_15wmetro WHERE drunk_dr = 0";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM ' + activesql);
            $('#DDB1').css("background-color", "#00CED1");
            $('#DDB2').css("background-color", "");
            $('#DDB3').css("background-color", "");   
         });
         $('#DDB2').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM acc_15wmetro WHERE drunk_dr = 1');
+          activesql = "acc_15wmetro WHERE drunk_dr = 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM ' + activesql);
            $('#DDB2').css("background-color", "#00CED1");
            $('#DDB1').css("background-color", "");
            $('#DDB3').css("background-color", "");
         });
         $('#DDB3').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM acc_15wmetro WHERE drunk_dr > 1');
+          activesql = "acc_15wmetro WHERE drunk_dr > 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total, drunk_dr FROM ' + activesql);
            $('#DDB3').css("background-color", "#00CED1");
            $('#DDB1').css("background-color", "");
            $('#DDB2').css("background-color", "");
@@ -94,46 +105,59 @@
 
           //month filters
          $('#Jan').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 1');
+          activesql = "acc_15wmetro WHERE month = 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Feb').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 2');
+          activesql = "acc_15wmetro WHERE month = 2";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Mar').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 3');
+          activesql = "acc_15wmetro WHERE month = 3";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Apr').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 4');
+          activesql = "acc_15wmetro WHERE month = 4";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#May').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 5');
+           activesql = "acc_15wmetro WHERE month = 5";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Jun').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 6');
+           activesql = "acc_15wmetro WHERE month = 6";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Jul').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 7');
+           activesql = "acc_15wmetro WHERE month = 7";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Aug').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 8');
+           activesql = "acc_15wmetro WHERE month = 8";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Sep').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 9');
+           activesql = "acc_15wmetro WHERE month = 9";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Oct').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 10');
+           activesql = "acc_15wmetro WHERE month = 10";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Nov').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 11');
+           activesql = "acc_15wmetro WHERE month = 11";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
          $('#Dec').on('click', function() {
-           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM acc_15wmetro WHERE month = 12');
+           activesql = "acc_15wmetro WHERE month = 12";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
 
          //Reset Button
         $('#reset').on('click', function() {
         acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
         $('.btn').attr('style','');
+        activesql = "acc_15wmetro";
         });
 
         // set interactivity
@@ -145,17 +169,28 @@
           $('#SCID').empty();
           $('#SCID').append('Metro Area: ' + data.name + '<br/>')
           $('#SCID').append('Case Number: ' + data.st_case)
+          console.log('hello');
         });
 
-       
-        
+         //give initial count
           var sql = new cartodb.SQL({ user: 'raj331' });
-          sql.execute('SELECT count(*) FROM acc_15wmetro')
+          sql.execute('SELECT count(*) FROM ' + activesql)
           .done(function(data) {
-            console.log(data.rows[0].count);
             $('#AD').empty();
             $('#AD').append(data.rows[0].count);
           });
+       
+       //give count on click update
+        $('#sidebar').on('click', function(){
+          var sql = new cartodb.SQL({ user: 'raj331' });
+          sql.execute('SELECT count(*) FROM ' + activesql)
+          .done(function(data) {
+            //console.log(activesql);
+            //console.log(data.rows[0].count);
+            $('#AD').empty();
+            $('#AD').append(data.rows[0].count);
+          });
+        });
 
       }).on('error', function() {
         //log the error
