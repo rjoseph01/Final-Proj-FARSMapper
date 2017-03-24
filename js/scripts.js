@@ -153,11 +153,75 @@
            acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, month FROM ' + activesql);
          });
 
+         //Day of the week
+         $('#DW1').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW2').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 2";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW3').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 3";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW4').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 4";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW5').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 5";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW6').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 6";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+         $('#DW7').on('click', function() {
+           activesql = "acc_15wmetro WHERE day_week = 7";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, day_week FROM ' + activesql);
+         });
+
+         //Urban or rural built environment buttons
+         $('#rural').on('click', function() {
+           activesql = "acc_15wmetro WHERE rur_urb = 1";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, rur_urb FROM ' + activesql);
+          $('#rur_urb').empty();//reset button text
+          $('#rur_urb').append('Rural or Urban (Rural Selected)');
+         });
+         $('#urban').on('click', function() {
+           activesql = "acc_15wmetro WHERE rur_urb = 2";
+           acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, rur_urb FROM ' + activesql);
+           $('#rur_urb').empty(); //reset button text
+           $('#rur_urb').append('Rural or Urban (Urban Selected)');
+         });
+
+
+         $('.state-menu li').on('click', function(e) {
+            var targetID = e.currentTarget.id;
+            var stateNo = targetID.toString().substring(2,4);
+            activesql = "acc_15wmetro WHERE state = " + stateNo;
+            acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql);
+            $('#statemenu').empty();
+            $('#statemenu').append('State: ' + e.target.id);
+            sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
+            map.fitBounds(bounds);
+            });
+         });
+
          //Reset Button
         $('#reset').on('click', function() {
         acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
         $('.btn').attr('style','');
         activesql = "acc_15wmetro";
+        $('#rur_urb').empty();
+        $('#rur_urb').append('Rural or Urban');
+        $('#statemenu').empty();
+        $('#statemenu').append('State');
+        sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
+          map.fitBounds(bounds);
+          });
         });
 
         // set interactivity
