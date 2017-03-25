@@ -232,6 +232,8 @@
           $('#rur_urb').append('Rural or Urban');
           $('#statemenu').empty();
           $('#statemenu').append('State');
+          $('#metromenu').empty();
+          $('#metromenu').append('Metro Area');
           sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
             map.fitBounds(bounds);
           });
@@ -253,6 +255,8 @@
           $('#rur_urb').append('Rural or Urban');
           $('#statemenu').empty();
           $('#statemenu').append('State');
+          $('#metromenu').empty();
+          $('#metromenu').append('Metro Area');
         });
 
 
