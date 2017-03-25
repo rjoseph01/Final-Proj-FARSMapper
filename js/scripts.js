@@ -197,7 +197,7 @@
            $('#rur_urb').append('Rural or Urban (Urban Selected)');
          });
 
-
+         //State Select
          $('.state-menu li').on('click', function(e) {
             var targetID = e.currentTarget.id;
             var stateNo = targetID.toString().substring(2,4);
@@ -210,19 +210,51 @@
             });
          });
 
+         //Metro Select
+          $('.metro-menu li').on('click', function(e) {
+            var targetID = e.currentTarget.id;
+            var metroNo = targetID.toString().substring(3,8);
+            activesql = "acc_15wmetro WHERE geoid = '" + metroNo + "'";
+            acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, geoid FROM ' + activesql);
+            $('#metromenu').empty();
+            $('#metromenu').append('Metro Area: ' + e.currentTarget.innerText);
+            sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, geoid FROM ' + activesql).done(function(bounds) {
+            map.fitBounds(bounds);
+            });
+         });
+
          //Reset Button
         $('#reset').on('click', function() {
-        acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
-        $('.btn').attr('style','');
-        activesql = "acc_15wmetro";
-        $('#rur_urb').empty();
-        $('#rur_urb').append('Rural or Urban');
-        $('#statemenu').empty();
-        $('#statemenu').append('State');
-        sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
-          map.fitBounds(bounds);
+          acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
+          $('.btn').attr('style','');
+          activesql = "acc_15wmetro";
+          $('#rur_urb').empty();
+          $('#rur_urb').append('Rural or Urban');
+          $('#statemenu').empty();
+          $('#statemenu').append('State');
+          sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
+            map.fitBounds(bounds);
           });
         });
+        //Reset Button Dropdowns
+        //Reset Map view
+        $('#resetmap').on('click', function() {
+          activesql = "acc_15wmetro";
+          sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
+            map.fitBounds(bounds);
+          });
+        });
+        //Reset filter
+        $('#resetfilter').on('click', function() {
+          acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
+          $('.btn').attr('style','');
+          activesql = "acc_15wmetro";
+          $('#rur_urb').empty();
+          $('#rur_urb').append('Rural or Urban');
+          $('#statemenu').empty();
+          $('#statemenu').append('State');
+        });
+
 
         // set interactivity
          acc_2015.setInteraction(true);
