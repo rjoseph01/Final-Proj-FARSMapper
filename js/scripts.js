@@ -7,7 +7,7 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
 
-    var layerUrl = 'https://raj331.carto.com/api/v2/viz/4f18adfc-0794-11e7-b321-0ecd1babdde5/viz.json';
+    var layerUrl = 'https://raj331.carto.com/api/v2/viz/4f18adfc-0794-11e7-b321-0ecd1babdde5/viz.csv';
 
     cartodb.createLayer(map, layerUrl)
       .addTo(map)
@@ -276,6 +276,13 @@
             $('#AD').empty();
             $('#AD').append(data.rows[0].count);
           });
+        });
+
+        //Set downloader by converting activesql to usable format
+        $(document).on('click', function(){
+          var asqlnk = activesql.replace(/ /g, "+");
+          var prevlink = "https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+" + asqlnk;
+          $("#downloader").attr("href", prevlink);
         });
 
       }).on('error', function() {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta Tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>FARS Mapper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Cabin|Karla:700" rel="stylesheet">
+
+   <link rel="icon" type="image/jpg" href="./FARS.jpg">
+  </head>
+
+  
+
+  <body>
+
+    <body style="background-color: azure">
+<div id="FARS-Menu" class="navbar navbar-default " role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="index.html">FARS Mapper</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars" target="_blank">FARS Website</a></li>
+                    <li><a href="Documentation.html">FARS Mapper Documentation</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Download<span class="caret"></span></a>
+                
+                <ul class="dropdown-menu">
+                    <li><a id="downloader" href="https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+acc_15wmetro">Download Current Filter Data</a></li>
+                    <li><a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/812315">User Manual for Data</a></li>
+                </li>
+                </ul>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="//github.com/rjoseph01">About Me</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="documentation">
+    <h1>Documentation Page</h1>
+    <h4>Purpose</h4>
+    <p>The Fatality Analysis Reporting System (FARS) is the National Highway Traffic Safety Administration's (NHTSA) nationwide census for counting road accidents with motor vehicles resulting in at least one fatality. This website provies a means for exploring fatal accidents that occurred in the United States in 2015 through viewing the location of accidents on a map and the selection of various filters pertaining to each accident.</p>
+    <h4>Limitations</h4>
+    <p>This website only displays fatal accidents that have geographic data. Because only 31,959 of the 32,166 fatal accidents have geographic data associated with them, the 207 accidents with no geography have been removed from the database underpinning this website. However, I am confident that the 99.4% of fatal accidents that are included are a sufficient sample for the purposes of exploration and analysis. </p>
+    <p>At the moment, some functions have been omitted from this website due to time and other constraints. These functions include the ability to select individual accidents with the mouse to view individual level data, the ability to select more than one filter at a time, and the inclusion of more variables from the FARS database. I hope to update the website to include these pieces in the near future.</p>
+    <p><br><em>Last Updated on 3/26/17--RJ</em></p>    
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

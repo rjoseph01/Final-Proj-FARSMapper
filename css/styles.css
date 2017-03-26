@@ -34,6 +34,10 @@
       padding: 5px 0 0 0;
       font-size: 15px;
     }
+.documentation{
+      padding: 15px;
+      text-align: justify;
+    }
 .btn-group {
     float: center;
 }
