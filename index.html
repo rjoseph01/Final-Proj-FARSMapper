@@ -35,8 +35,10 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars" target="_blank">FARS Documentation</a>
                 </li>
-                <li><a href="#">2014 Data</a>
+                <li><a href="#">Download Current Filter</a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li><a href="//github.com/rjoseph01">About Me</a>
                 </li>
             </ul>
@@ -77,25 +79,26 @@
             <div class="envchar">
                 <h5>Date:</h5>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="monthmenu">
                     Month <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu">
-                    <li id="Jan"><a href="#">January</a></li>
-                    <li id="Feb"><a href="#">February</a></li>
-                    <li id="Mar"><a href="#">March</a></li>
-                    <li id="Apr"><a href="#">April</a></li>
-                    <li id="May"><a href="#">May</a></li>
-                    <li id="Jun"><a href="#">June</a></li>
-                    <li id="Jul"><a href="#">July</a></li>
-                    <li id="Aug"><a href="#">August</a></li>
-                    <li id="Sep"><a href="#">September</a></li>
-                    <li id="Oct"><a href="#">October</a></li>
-                    <li id="Nov"><a href="#">November</a></li>
-                    <li id="Dec"><a href="#">December</a></li>
-                  </ul>
+                      <ul class="dropdown-menu month-menu">
+                        <li id="Jan01"><a href="#">January</a></li>
+                        <li id="Feb02"><a href="#">February</a></li>
+                        <li id="Mar03"><a href="#">March</a></li>
+                        <li id="Apr04"><a href="#">April</a></li>
+                        <li id="May05"><a href="#">May</a></li>
+                        <li id="Jun06"><a href="#">June</a></li>
+                        <li id="Jul07"><a href="#">July</a></li>
+                        <li id="Aug08"><a href="#">August</a></li>
+                        <li id="Sep09"><a href="#">September</a></li>
+                        <li id="Oct10"><a href="#">October</a></li>
+                        <li id="Nov11"><a href="#">November</a></li>
+                        <li id="Dec12"><a href="#">December</a></li>
+                      </ul>
                   </div>
-            <div class="btn-group">
+<!--Future Expansion to days
+             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Day<span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     <li id="D1"><a href="#">1</a></li>
@@ -130,38 +133,39 @@
                     <li id="D30"><a href="#">30</a></li>
                     <li id="D31"><a href="#">31</a></li>
                 </ul>
-            </div>
-            <h5><br>Time:</h5>
+            </div> -->
+            <h5>Time:</h5>
             <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Hour<span class="caret"></span></button>
-                <ul class="dropdown-menu scrollable-menu" role="menu">
-                    <li id="H0"><a href="#">0</a></li>
-                    <li id="H1"><a href="#">1</a></li>
-                    <li id="H2"><a href="#">2</a></li>
-                    <li id="H3"><a href="#">3</a></li>
-                    <li id="H4"><a href="#">4</a></li>
-                    <li id="H5"><a href="#">5</a></li>
-                    <li id="H6"><a href="#">6</a></li>
-                    <li id="H7"><a href="#">7</a></li>
-                    <li id="H8"><a href="#">8</a></li>
-                    <li id="H9"><a href="#">9</a></li>
-                    <li id="H10"><a href="#">10</a></li>
-                    <li id="H11"><a href="#">11</a></li>
-                    <li id="H12"><a href="#">12</a></li>
-                    <li id="H13"><a href="#">13</a></li>
-                    <li id="H14"><a href="#">14</a></li>
-                    <li id="H15"><a href="#">15</a></li>
-                    <li id="H16"><a href="#">16</a></li>
-                    <li id="H17"><a href="#">17</a></li>
-                    <li id="H18"><a href="#">18</a></li>
-                    <li id="H19"><a href="#">19</a></li>
-                    <li id="H20"><a href="#">20</a></li>
-                    <li id="H21"><a href="#">21</a></li>
-                    <li id="H22"><a href="#">22</a></li>
-                    <li id="H23"><a href="#">23</a></li>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="hourmenu">Hour<span class="caret"></span></button>
+                <ul class="dropdown-menu scrollable-menu hour-menu" role="menu">
+                    <li id="H00"><a href="#">12 AM</a></li>
+                    <li id="H01"><a href="#">1 AM</a></li>
+                    <li id="H02"><a href="#">2 AM</a></li>
+                    <li id="H03"><a href="#">3 AM</a></li>
+                    <li id="H04"><a href="#">4 AM</a></li>
+                    <li id="H05"><a href="#">5 AM</a></li>
+                    <li id="H06"><a href="#">6 AM</a></li>
+                    <li id="H07"><a href="#">7 AM</a></li>
+                    <li id="H08"><a href="#">8 AM</a></li>
+                    <li id="H09"><a href="#">9 AM</a></li>
+                    <li id="H10"><a href="#">10 AM</a></li>
+                    <li id="H11"><a href="#">11 AM</a></li>
+                    <li id="H12"><a href="#">12 PM</a></li>
+                    <li id="H13"><a href="#">1 PM</a></li>
+                    <li id="H14"><a href="#">2 PM</a></li>
+                    <li id="H15"><a href="#">3 PM</a></li>
+                    <li id="H16"><a href="#">4 PM</a></li>
+                    <li id="H17"><a href="#">5 PM</a></li>
+                    <li id="H18"><a href="#">6 PM</a></li>
+                    <li id="H19"><a href="#">7 PM</a></li>
+                    <li id="H20"><a href="#">8 PM</a></li>
+                    <li id="H21"><a href="#">9 PM</a></li>
+                    <li id="H22"><a href="#">10 PM</a></li>
+                    <li id="H23"><a href="#">11 PM</a></li>
                   </ul>
             </div>
-                <div class="btn-group">
+<!--Future Expansion to Minutes
+                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Minute<span class="caret"></span></button>
                     <ul class="dropdown-menu scrollable-menu" role="menu">
                         <li id=“HM0"><a href="#">0</a></li>              
@@ -225,13 +229,13 @@
                         <li id=“HM58"><a href="#">58</a></li>
                         <li id=“HM59"><a href="#">59</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <h5>Day of the Week:</h5>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="DoWmenu">
                     Day of the Week<span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu DoW-menu">
                     <li id="DW1"><a href="#">Sunday</a></li>
                     <li id="DW2"><a href="#">Monday</a></li>
                     <li id="DW3"><a href="#">Tuesday</a></li>
@@ -239,6 +243,25 @@
                     <li id="DW5"><a href="#">Thursday</a></li>
                     <li id="DW6"><a href="#">Friday</a></li>
                     <li id="DW7"><a href="#">Saturday</a></li>
+                  </ul>
+                </div>
+                <h5>Weather</h5>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="weathermenu">
+                    Weather<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu scrollable-menu weather-menu">
+                    <li id="Wea01"><a href="#">Clear</a></li>
+                    <li id="Wea02"><a href="#">Rain</a></li>
+                    <li id="Wea03"><a href="#">Sleet or Hail</a></li>
+                    <li id="Wea04"><a href="#">Snow</a></li>
+                    <li id="Wea05"><a href="#">Fog, Smog, or Smoke</a></li>
+                    <li id="Wea06"><a href="#">Severe Crosswinds</a></li>
+                    <li id="Wea07"><a href="#">Blowing Sand, Soil, or Dirt</a></li>
+                    <li id="Wea08"><a href="#">Other</a></li>
+                    <li id="Wea10"><a href="#">Cloudy</a></li>
+                    <li id="Wea11"><a href="#">Blowing Snow</a></li>
+                    <li id="Wea12"><a href="#">Freezing Rain or Drizzle</a></li>
                   </ul>
                 </div>    
             </div>
@@ -1256,9 +1279,9 @@
                   <ul class="dropdown-menu">
                     <li><a id="resetmap" href="#">Reset Map View</a></li>
                     <li><a id="resetfilter" href="#">Reset Filter</a></li>
-                    <li><a href="#">Maybe another reset?</a></li>
+                    <!-- <li><a href="#">Maybe another reset?</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Reset spacetime</a></li>
+                    <li><a href="#">Reset spacetime</a></li> -->
                   </ul>
                 </div>
                 <h5>Accidents Displayed:</h5>
