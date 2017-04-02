@@ -27,7 +27,7 @@
     <body style="background-color: azure">
 <div id="FARS-Menu" class="navbar navbar-default " role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#">FARS Mapper 2015</a> 
+        <div class="navbar-header"><a class="navbar-brand" href="#">FARS Mapper 2014</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
         </div>
@@ -38,13 +38,14 @@
                     <ul class="dropdown-menu">
                     <li><a href="https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars" target="_blank">FARS Website <span class="glyphicon glyphicon-list-alt"></span></a></li>
                     <li><a href="Documentation.html">FARS Mapper Documentation <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                    <li><a href="Index.html">FARS Mapper 2015 <span class="glyphicon glyphicon-calendar"></span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Download <span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Download <span class="glyphicon glyphicon-download-alt"></span></a>
                 
                 <ul class="dropdown-menu">
-                    <li><a id="downloader" href="https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+acc_15wmetro">Download Current Filter Data <span class="glyphicon glyphicon-download"></span></a></li>
+                    <li><a id="downloader" href="https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+acc_14wmetro">Download Current Filter Data <span class="glyphicon glyphicon-download"></span></a></li>
                     <li><a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/812315">User Manual for Data <span class="glyphicon glyphicon-book"></span></a></li>
                 </li>
                 </ul>
@@ -1298,9 +1299,10 @@
                 </div>
                 <h5>Accidents Displayed:</h5>
                 <h3 id="AD"></h3>
-                <div id="SCID">
-                    <!-- <h5>Selected Case ID:</h5> -->
-                </div>    
+                <!-- <div id="SCID">
+                    <h5>Filters on:</h5>
+                    <div id="allthefilters"></div>
+                </div>     -->
             </div>               
       </div>
       <div id="map">
@@ -1310,6 +1312,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts14.js"></script>
   </body>
 </html>
