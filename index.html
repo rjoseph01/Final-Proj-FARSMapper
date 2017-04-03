@@ -38,7 +38,6 @@
                     <ul class="dropdown-menu">
                     <li><a href="https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars" target="_blank">FARS Website <span class="glyphicon glyphicon-list-alt"></span></a></li>
                     <li><a href="Documentation.html">FARS Mapper Documentation <span class="glyphicon glyphicon-info-sign"></span></a></li>
-                    <li><a href="FM2014.html">FARS Mapper 2014 <span class="glyphicon glyphicon-calendar"></span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -49,6 +48,7 @@
                     <li><a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/812315">User Manual for Data <span class="glyphicon glyphicon-book"></span></a></li>
                 </li>
                 </ul>
+                <li><a href="FM2014.html">FARS Mapper 2014  <span class="glyphicon glyphicon-calendar"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="//github.com/rjoseph01">About Me <span class="glyphicon glyphicon-user"></a>
@@ -279,7 +279,7 @@
                 </div>    
             </div>
             <div class="geochar">
-                <H5>Location:</H5>
+                <H5>State Location:</H5>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="statemenu">
                     State <span class="caret"></span>
@@ -339,6 +339,7 @@
 
                   </ul>
                 </div>
+                <h5>Metro Area Location:</h5>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="metromenu">
                     Metro Area <span class="caret"></span>
@@ -1292,16 +1293,13 @@
                   <ul class="dropdown-menu">
                     <li><a id="resetmap" href="#">Reset Map View</a></li>
                     <li><a id="resetfilter" href="#">Reset Filter</a></li>
-                    <!-- <li><a href="#">Maybe another reset?</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Reset spacetime</a></li> -->
                   </ul>
                 </div>
                 <h5>Accidents Displayed:</h5>
                 <h3 id="AD"></h3>
-                <div id="SCID">
-                    <!-- <h5>Selected Case ID:</h5> -->
-                </div>    
+                <!-- <div id="SCID">
+                    <h5>Selected Case ID:</h5>
+                </div>  Provision for future interactivity-->   
             </div>               
       </div>
       <div id="map">

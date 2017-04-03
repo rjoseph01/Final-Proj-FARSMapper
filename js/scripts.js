@@ -247,8 +247,11 @@
 
 
         // set interactivity
+        /* After extensive testing and getting interactivity to work on the 2014 map, it was found that interactivity conflicted
+        with several of the setsql filters. The cause of this error is unknown, but I will explore ways to get around this issue  
+        in future iterations of this site*/
          acc_2015.setInteraction(true);
-         acc_2015.setInteractivity('name');
+         //acc_2015.setInteractivity('name');
 
         // Interactivity for this layer
          acc_2015.on('featureClick', function(e, latlng, pos, data, layerNumber) {

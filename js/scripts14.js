@@ -7,7 +7,7 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
 
-    var layerUrl = 'https://raj331.carto.com/api/v2/viz/aa56f860-0792-11e7-9c34-0e233c30368f/viz.csv';
+    var layerUrl = 'https://raj331.carto.com/api/v2/viz/430e492a-17f9-11e7-bc6f-0e233c30368f/viz.csv';
 
     cartodb.createLayer(map, layerUrl)
       .addTo(map)
@@ -167,6 +167,7 @@
          $('#urban').on('click', function() {
            $.fn.filtreset();
            activesql = "acc_14wmetro WHERE rur_urb = 2";
+           console.log(activesql);
            acc_2014.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, rur_urb FROM ' + activesql);
            $('#rur_urb').empty(); //reset button text
            $('#rur_urb').append('Rural or Urban (Urban Selected)');
@@ -247,14 +248,18 @@
 
 
         // set interactivity
+        /* After extensive testing and getting interactivity to work on the 2014 map, it was found that interactivity conflicted
+        with several of the setsql filters. The cause of this error is unknown, but I will explore ways to get around this issue  
+        in future iterations of this site*/
          acc_2014.setInteraction(true);
-         acc_2014.setInteractivity('name');
+         //acc_2014.setInteractivity('name');
+         //acc_2014.set({interactivity: "cartodb_id, the_geom, the_geom_webmercator, name, ve_total"})
 
         // Interactivity for this layer
          acc_2014.on('featureClick', function(e, latlng, pos, data, layerNumber) {
           $('#SCID').empty();
           $('#SCID').append('Metro Area: ' + data.name + '<br/>')
-          $('#SCID').append('Case Number: ' + data.st_case)
+          $('#SCID').append('Case Number: ' + data.ve_total)
           console.log('hello');
         });
 
