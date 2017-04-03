@@ -294,25 +294,6 @@
         //log the error
       });
 
-
-    // Use the SQL API to get raw data from carto
-
-    // var apiCall = 'https://raj331.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20acc_15wmetro%20WHERE%20cartodb_id=1'
-
-    // $.getJSON(apiCall, function(data) {
-    //   console.log(data);
-    // })
-
-    // // geojson API CALL
-
-    // var geojsonApiCall = 'https://raj331.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20acc_15wmetro%20WHERE%20cartodb_id=23454&format=geojson';
-
-    // $.getJSON(geojsonApiCall, function(data) {
-    //   console.log(data);
-
-    //   L.geoJson(data).addTo(map);
-    // });
-
 //Sidebar Button Panel Operation
 //Default Hidden Panels
 $('.envchar').hide();

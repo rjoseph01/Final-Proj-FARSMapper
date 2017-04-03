@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
     <title>FARS Mapper</title>
+    <!-- link styslesheets and fonts from Google -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -62,6 +63,7 @@
     <div id="container">
       
       <div id="sidebar">
+      <!-- set up all the buttons for filters -->
         <h4>Select Attributes to Filter Fatal Accidents</h4>
             <div class="btn-group" role="group" aria-label="...">
                   <button type="button" class="btn btn-default" id="physbut">Physical</button>
@@ -1284,6 +1286,7 @@
                 </div>   
             </div>
             <div class="dispbox">
+            <!-- Displays results of map including number of accidents in current filter -->
                 <div class="btn-group" id="resetter">
                   <button type="button" class="btn btn-danger" id="reset">Reset Map  <span class="glyphicon glyphicon-refresh"></span></button>
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1305,7 +1308,7 @@
       <div id="map">
       </div>
 
-    </div><!-- /.container -->
+    </div><!-- link scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

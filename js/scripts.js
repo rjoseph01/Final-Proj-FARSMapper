@@ -2,7 +2,7 @@
       center: [37,-96.2],
       zoom: 4
     });
-
+    //Instatiate map
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
@@ -26,8 +26,8 @@
            $.fn.filtreset();
            activesql = "acc_15wmetro WHERE ve_total = 1"
            acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM ' + activesql);
-           $('#VTB1').css("background-color", "#00CED1");
-           $('#VTB2').css("background-color", "");
+           $('#VTB1').css("background-color", "#00CED1"); //highlights button when selected
+           $('#VTB2').css("background-color", "");        //turns off other buttons highlighting
            $('#VTB3').css("background-color", "");
            $('#VTB4').css("background-color", "");
         });
@@ -205,8 +205,8 @@
           $.fn.filtreset = function(){
             acc_2015.setSQL('SELECT cartodb_id, the_geom, the_geom_webmercator, name, ve_total FROM acc_15wmetro');
           $('.btn').attr('style','');
-          activesql = "acc_15wmetro";
-          $('#rur_urb').empty();
+          activesql = "acc_15wmetro"; //resets sql count query
+          $('#rur_urb').empty();      //returns all button titles to original state
           $('#rur_urb').append('Rural or Urban');
           $('#statemenu').empty();
           $('#statemenu').append('State');
@@ -225,9 +225,9 @@
 
          //Reset Button
         $('#reset').on('click', function() {
-          $.fn.filtreset();
+          $.fn.filtreset();   //runs above function to clear out buttons
           sql.getBounds('SELECT cartodb_id, the_geom, the_geom_webmercator, name, state FROM ' + activesql).done(function(bounds) {
-            map.fitBounds(bounds);
+            map.fitBounds(bounds); //resets map's view
           });
         });
 
@@ -272,44 +272,23 @@
        //give count on click update
         $('#sidebar').on('click', function(){
           var sql = new cartodb.SQL({ user: 'raj331' });
-          sql.execute('SELECT count(*) FROM ' + activesql)
+          sql.execute('SELECT count(*) FROM ' + activesql) //counts the rows in current filter
           .done(function(data) {
-            //console.log(activesql);
-            //console.log(data.rows[0].count);
             $('#AD').empty();
-            $('#AD').append(data.rows[0].count);
+            $('#AD').append(data.rows[0].count);          //displays count of how many rows/accidents in filter
           });
         });
 
         //Set downloader by converting activesql to usable format
         $(document).on('click', function(){
-          var asqlnk = activesql.replace(/ /g, "+");
-          var prevlink = "https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+" + asqlnk;
+          var asqlnk = activesql.replace(/ /g, "+"); //formats query with + instead of spaces
+          var prevlink = "https://raj331.carto.com/api/v2/sql?format=csv&q=SELECT+*+FROM+" + asqlnk; //makes full query
           $("#downloader").attr("href", prevlink);
         });
 
       }).on('error', function() {
         //log the error
       });
-
-
-    // Use the SQL API to get raw data from carto
-
-    // var apiCall = 'https://raj331.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20acc_15wmetro%20WHERE%20cartodb_id=1'
-
-    // $.getJSON(apiCall, function(data) {
-    //   console.log(data);
-    // })
-
-    // // geojson API CALL
-
-    // var geojsonApiCall = 'https://raj331.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20acc_15wmetro%20WHERE%20cartodb_id=23454&format=geojson';
-
-    // $.getJSON(geojsonApiCall, function(data) {
-    //   console.log(data);
-
-    //   L.geoJson(data).addTo(map);
-    // });
 
 //Sidebar Button Panel Operation
 //Default Hidden Panels

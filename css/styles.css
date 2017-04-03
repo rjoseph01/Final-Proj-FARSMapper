@@ -10,7 +10,9 @@
       height: 92%;
       box-shadow: 0 0 10px rgba(0,0,0,0.55);
     }
-    #sidebar {
+
+    #sidebar { 
+      /*Styles the filters box properly*/
       width: 32%;
       height: 100%;
       max-width: 100%;
@@ -71,6 +73,7 @@
     max-height: 200px;
     overflow-x: hidden;
 }
+/*Below are Navbar specific styling pieces*/
 #FARS-Menu.navbar-default .navbar-brand {
     color: rgba(64, 41, 158, 1);
     font-family: 'Arvo', serif;
